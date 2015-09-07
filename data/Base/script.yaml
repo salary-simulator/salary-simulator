@@ -1,0 +1,26 @@
+consequences:
+  - when:
+      - factIs: LiedSalary
+      - factIs: CheckedRefs
+      - set: CaughtLieSalary
+questions:
+  - query: "I see you worked at ACME co. for 4 years. What was your salary there?"
+    FactReq:
+      - HasResume
+    replies:
+      - resp: "(Truth) $105,00"
+        - isReq: True
+        - setSalAsk: 105000
+      - resp: "(Lie) $125,000"
+        - set: LiedSalary
+        - setSalAsk: 125000
+      - resp: "(Lie) $150,000"
+        - set: OverMarketRate
+        - setSalAsk: 150000
+      - resp: "Above market rate."
+      - resp: "I'd prefer not to say"
+      - resp: "My male colleges made $105,000"
+        - FactReq:
+          - GenderFemale
+        - setSalAsk: 105000
+  - query: "I'm afraid 
