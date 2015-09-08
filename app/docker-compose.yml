@@ -1,0 +1,8 @@
+app-dev:
+  command: webpack-dev-server --content-base=./build --hot --host=0.0.0.0 --watch-poll=1000
+  build: ./
+  volumes:
+    - ./src:/usr/src/app/src
+    - ../data:/usr/src/app/build/data
+  ports:
+    - "8080:8080"
