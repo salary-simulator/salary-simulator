@@ -4,8 +4,10 @@ import {
   SELECT_CHOICE,
 } from '../actions/game'
 
+import { INTRO_STEP } from '../constants/gameStep'
+
 const initialState = Immutable.fromJS({
-  gameStep: 'intro',
+  gameStep: INTRO_STEP,
   character: null,
   choices: [],
 })

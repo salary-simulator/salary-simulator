@@ -1,39 +1,34 @@
+import Immutable from 'immutable'
 import React, { Component, PropTypes } from 'react'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import * as ScriptActions from '../actions/scripts'
-import * as GameActions from '../actions/game'
+import { fetchIndex } from '../actions/scripts'
+import { selectChoice } from '../actions/game'
+import Game from '../components/Game'
 
 class App extends Component {
-  render() {
-    const { choices, dispatch } = this.props
-    const scriptActions = bindActionCreators(ScriptActions, dispatch)
-    const gameActions = bindActionCreators(GameActions, dispatch)
+  componentDidMount() {
+    this.props.dispatch(fetchIndex())
+  }
 
+  render() {
+    const { game, dispatch } = this.props
     return (
-      <div>
-        hello, world!
-        <button onClick={scriptActions.fetchIndex}>fetch</button>
-        <button onClick={() => scriptActions.fetchScript('Base')}>fetch sc</button>
-        <button onClick={() => gameActions.startGame('Base')}>startGame</button>
-        <div>
-          {choices.map((choice, i) =>
-            <button onClick={() => gameActions.selectChoice(i)}>{choice}</button>
-          )}
-        </div>
-      </div>
+      <Game
+        onSelectChoice={choice => dispatch(selectChoice(choice))}
+        {...game.toJS()}
+      />
     )
   }
 }
 
 App.propTypes = {
-  choices: PropTypes.object.isRequired,
+  game: PropTypes.instanceOf(Immutable.Map).isRequired,
   dispatch: PropTypes.func.isRequired,
 }
 
 function mapStateToProps(state) {
   return {
-    choices: state.game.get('choices'),
+    game: state.game,
   }
 }
 
