@@ -13,11 +13,11 @@ questions:
         - SportHate
     replies:
       - resp: "I'm not that into sports."
-        - set:
-            - SportHate
+        set:
+          - SportHate
       - resp: "I've always been a golfer."
-        - FactDisReq:
-            - GolfHate
+        FactDisReq:
+          - GolfHate
       - resp: "I'm a computer gamer, with me as your counter-terrorist, the terrorists never win!"
       - resp: "I make sure to catch football every weekend."
       - resp: "I'm most into basketball."
@@ -28,25 +28,25 @@ questions:
       - GolfHate
     replies:
       - resp: "I play a mean game."
-        - adjAcceptSal: 15%
-        - set:
-            - OneOfTheGuys
+        adjAcceptSal: 15%
+        set:
+          - OneOfTheGuys
       - resp: "I can't stand golf."
-        - adjAcceptSal: -30%
-        - set:
-            - GolfHate
+        adjAcceptSal: -30%
+        set:
+          - GolfHate
       - resp: "Afraid I'm not a golfer."
-        - isReq: True
-        - adjAcceptSal: -10%
-        - set:
-            - GolfHate
+        isReq: True
+        adjAcceptSal: -10%
+        set:
+          - GolfHate
       - resp: "I'm a scratch golfer."
-        - adjAcceptSal: 20%
-        - set:
-            - Sportsman
-            - ManagementMatterial
-            - OneOfTheGuys
+        adjAcceptSal: 20%
+        set:
+          - Sportsman
+          - ManagementMatterial
+          - OneOfTheGuys
       - resp: "I'm a bogey golfer,"
-          - adjAcceptSal: 5%
-           -set:
-             - OneOfTheGuys
+        adjAcceptSal: 5%
+        set:
+          - OneOfTheGuys

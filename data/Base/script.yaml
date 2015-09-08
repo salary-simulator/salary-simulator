@@ -9,18 +9,17 @@ questions:
       - HasResume
     replies:
       - resp: "(Truth) $105,00"
-        - isReq: True
-        - setSalAsk: 105000
+        isReq: True
+        setSalAsk: 105000
       - resp: "(Lie) $125,000"
-        - set: LiedSalary
-        - setSalAsk: 125000
+        set: LiedSalary
+        setSalAsk: 125000
       - resp: "(Lie) $150,000"
-        - set: OverMarketRate
-        - setSalAsk: 150000
+        set: OverMarketRate
+        setSalAsk: 150000
       - resp: "Above market rate."
       - resp: "I'd prefer not to say"
       - resp: "My male colleges made $105,000"
-        - FactReq:
+        FactReq:
           - GenderFemale
-        - setSalAsk: 105000
-  - query: "I'm afraid 
+        setSalAsk: 105000
