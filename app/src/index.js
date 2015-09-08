@@ -19,8 +19,8 @@ if (process.env.NODE_ENV !== 'production') {
   const { DevTools, DebugPanel, LogMonitor } = require('redux-devtools/lib/react')
   const containerEl = document.body.appendChild(document.createElement('div'))
   React.render(
-    <DebugPanel top right bottom>
-      <DevTools store={store} monitor={LogMonitor} />
+    <DebugPanel right top bottom>
+      <DevTools store={store} monitor={LogMonitor} visibleOnLoad={false} />
     </DebugPanel>,
     containerEl,
   )
